@@ -1,5 +1,5 @@
 .playitMaterial-fullBackground(ng-style="{'background-image':'url({{ movieDetailCtrl.background }})'}")
-md-contain.no-background.detail-content(layout="column"flex)
+md-contain.no-background.detail-content( layout="column" flex)
   h1 {{ movieDetailCtrl.movie.original_title }}
   img(data-ng-src="https://image.tmdb.org/t/p/w1280{{ movieDetailCtrl.movie.poster_path }}")
   span {{ movieDetailCtrl.movie.overview}}

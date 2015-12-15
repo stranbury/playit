@@ -1,4 +1,4 @@
-md-content(flex ng-cloak)
+md-content.no-background(flex ng-cloak)
   md-grid-list(md-cols-gt-md="4" md-cols-sm="1" md-cols-md="2" md-row-height-gt-md="1:1" md-row-height="4:3"  md-gutter-gt-md="16px" md-gutter-gt-sm="8px" md-gutter="4px" flex)
     md-grid-tile(data-ng-repeat="movie in ::main.movies | orderBy :  movie.popularity" md-colspan-gt-sm="{movie.$index}" md-rowspan-gt-sm="{movie.$index}" layout="column")
       a( ui-sref="app.home.detail({ id: movie.id })" )

@@ -46,10 +46,14 @@
 
 html {
   font-family: 'Roboto Slab', serif;
+
 }
 body {
-  background-color: rgba(0,0,0,0.90);
-
+  background: rgba(31,41 , 48, 1) no-repeat center center fixed;
+  -webkit-background-size: cover;
+-moz-background-size: cover;
+-o-background-size: cover;
+background-size: cover;
 }
 [layout=row] {
   flex-direction: row;
@@ -65,7 +69,9 @@ body {
 md-toolbar.md-default-theme {
   background-color: black;
 }
-
+md-content.md-default-theme, md-content{
+  background: none !important;
+}
 section.jumbotron {
   margin-bottom: 30px;
   padding: 1px 30px;
