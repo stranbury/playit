@@ -58,31 +58,12 @@ export function routerConfig ($stateProvider, $urlRouterProvider) {
             let background = "";
             Utils.bubbleSort(backdropsArray);
             path = backdropsArray[0].file_path;
-            background = "https://image.tmdb.org/t/p/w154"+path;
+            background = "https://image.tmdb.org/t/p/w1280"+path;
             deferred.resolve(background);
           },(err)=>{
             deferred.reject(err);
           })
           return deferred.promise;
-        },
-        trailler: function(MoviesService, $q, $stateParams){
-          let data = $stateParams.id;
-          let deffered = $q.defer();
-          MoviesService.getTraillerMovie(data).then((traillers)=>{
-            deffered.resolve()traillers;
-          }, (err) =>{
-            deffered.reject(err);
-          })
-        },
-        recommandation: function(MoviesService ,$q, $stateParams, $log){
-          let  deferred = $q.defer();
-          MoviesService.getRecommandation().then((recommandations)=>{
-            deffered.resolve(recommandations);
-          },(err) =>{
-            $log.error("an't get the recommandations data because", err);
-            deffered.reject(err);
-          });
-          return deffered.promise;
         }
       },
       views:{

@@ -14,7 +14,7 @@ angular.module('playitMaterial', ['ngAnimate', 'ngCookies', 'ngTouch', 'ngSaniti
   .config(routerConfig)
   .config(function($mdThemingProvider) {
   $mdThemingProvider.theme('default')
-    .primaryPalette('pink')
+    .primaryPalette('orange')
     .accentPalette('orange');
   })
   .run(runBlock)

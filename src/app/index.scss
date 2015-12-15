@@ -48,9 +48,7 @@ html {
   font-family: 'Roboto Slab', serif;
 }
 body {
-  background-color: rgba(21,95,130,0.78);
-background: @include filter-gradient(#155f82, #145d80, vertical);
-background: @include background-image(linear-gradient(top, rgba(21,95,130,0.78) 0%, rgba(20,93,128,0.78) 5%, rgba(11,54,85,1) 94%, rgba(10,51,82,1) 100%));
+  background-color: rgba(0,0,0,0.90);
 
 }
 [layout=row] {
