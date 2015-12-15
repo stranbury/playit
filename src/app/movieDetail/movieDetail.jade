@@ -1,0 +1,8 @@
+.playitMaterial-fullBackground(ng-style="{'background-image':'url({{ movieDetailCtrl.background }})'}")
+md-contain.no-background.detail-content(layout="column" layout-align="center center")
+  h1 {{ movieDetailCtrl.movie.original_title }}
+  img(data-ng-src="https://image.tmdb.org/t/p/w154{{ movieDetailCtrl.movie.poster_path }}")
+  span {{ movieDetailCtrl.movie.overview}}
+//- md-content
+//-   h1 AVIS
+  

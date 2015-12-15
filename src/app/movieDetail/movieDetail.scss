@@ -1,0 +1,13 @@
+.playitMaterial-fullBackground {
+  height: 100vh;
+  width: 100vw;
+  position: absolute;
+  background-repeat: no-repeat;
+  background-size: cover;
+  background-position: center fixed;
+  z-index: -1;
+}
+
+.detail-content {
+  color: white !important;
+}
