@@ -20,6 +20,21 @@ export class MoviesService {
            })
       return  deffered.promise;
   }
+  getSearchFromApi(search){
+    let deffered = this.q.defer();
+    this.http.get('http://api.themoviedb.org/3/search/movie',{
+               params:{
+                   api_key: TMDB,
+                   query: search
+               }
+           }).then((data)=>{
+             deffered.resolve(data);
+           }, (err)=>{
+             this.deffered.reject(err);
+           })
+      return  deffered.promise;
+  }
+  
   getMovieInformation(id){
     var deferred = this.q.defer();
     this.http.get('https://api.themoviedb.org/3/movie/'+id,{

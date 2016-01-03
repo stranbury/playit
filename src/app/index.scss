@@ -71,8 +71,15 @@ body {
 md-toolbar.md-default-theme {
 
 }
+.main.ng-enter {
+  animation: fadeIn 1s;
+}
+
+.main.ng-leave {
+  animation: fadeOut 1.5s;
+}
 md-toolbar.md-default-theme:not(.md-menu-toolbar), md-toolbar:not(.md-menu-toolbar) {
-    background-color: rgba(233,30,99, 0);
+    background-color: rgba(0,0,0, 0.5);
     color: rgb(255,255,255);
     position: fixed;
     margin-bottom: 50px;

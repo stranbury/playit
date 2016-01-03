@@ -2,10 +2,10 @@ md-toolbar
   div.md-toolbar-tools
     span(flex)
       a(ui-sref="app.home") PlayIt
-    span(flex)
-      md-input-container
-        input(ng-model="user.email" type="email")
-        md-button SEARCH
+    span(flex="50" layout="row")
+      md-input-container(flex="70")
+        input(ng-model="user.email" type="text")
+        md-button(flex="20") SEARCH
     span(flex)
     a(ui-sref="app.home.topRated")
       md-button TOP
