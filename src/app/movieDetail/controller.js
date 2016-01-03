@@ -5,7 +5,7 @@ export class MovieDetailController {
     this.reviews = reviews;
     this.background = backdrop;
     this.movie = movie;
-    this.log.info(this.background);
+    $log.debug(this.movie.genres) 
   }
 
 

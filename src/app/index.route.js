@@ -12,7 +12,7 @@ export function routerConfig ($stateProvider, $urlRouterProvider) {
       resolve:{
         movies: function ($q,MoviesService){
           var deferred = $q.defer();
-          MoviesService.getPopularMovies().then((data)=>{
+          MoviesService.getTrendy().then((data)=>{
             deferred.resolve(data.data.results);
           },(err)=>{
             deferred.reject(err);
@@ -53,7 +53,6 @@ export function routerConfig ($stateProvider, $urlRouterProvider) {
           var deferred = $q.defer();
           MoviesService.getMovieImages($stateParams.id).then((data)=>{
             let backdropsArray = data.data.backdrops;
-            console.log(backdropsArray);
             let path = "";
             let background = "";
             Utils.bubbleSort(backdropsArray);
@@ -64,6 +63,16 @@ export function routerConfig ($stateProvider, $urlRouterProvider) {
             deferred.reject(err);
           })
           return deferred.promise;
+        },
+        recommandation: function($stateParams,$q, MoviesService ){
+          let deffered = $q.defer();
+          let id = $stateParams.id;
+          MoviesService.getRecommandation(id).then((reco)=>{
+            deffered.resolve(reco)
+          }, (err)=>{
+            deffered.reject(err);
+          });
+          return deffered.promise;
         }
       },
       views:{

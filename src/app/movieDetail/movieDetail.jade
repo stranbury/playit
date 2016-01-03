@@ -1,7 +1,15 @@
 .playitMaterial-fullBackground(ng-style="{'background-image':'url({{ movieDetailCtrl.background }})'}")
-md-contain.no-background.detail-content( layout="column" flex)
-  h1 {{ movieDetailCtrl.movie.original_title }}
-  img(data-ng-src="https://image.tmdb.org/t/p/w1280{{ movieDetailCtrl.movie.poster_path }}")
-  span {{ movieDetailCtrl.movie.overview}}
+md-contain.no-background.detail-content( layout="row" flex)
+  .contain-button(layout= "column" layout-align="center center")
+    md-button.md-fab( aria-label="Eat cake") {{movieDetailCtrl.movie.vote_average}}
+    md-button.md-fab( aria-label="Eat cake")
+      md-icon 
+    md-button.md-fab( aria-label="Eat cake")
+      md-icon
+  .content-texte(layout= "column"  layout-align="start start" flex="100") 
+    h1 {{ movieDetailCtrl.movie.original_title }}
+    span(layout="row")
+      p.movie-genre(ng-repeat=" genre in movieDetailCtrl.movie.genres") {{genre.name}}
+    p.movie-description {{ movieDetailCtrl.movie.overview}}
 
   

@@ -1,3 +1,6 @@
 .no-background {
   background-color: none !important;
 }
+.scrollable {
+  overflow: scroll !important;
+}

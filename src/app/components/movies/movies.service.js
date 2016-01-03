@@ -98,7 +98,7 @@ export class MoviesService {
   }
   getUpCommingMovies(){
 
-    var deffered = this.q.defer();
+    let deffered = this.q.defer();
     this.http.get('https://api.themoviedb.org/3/movie/upcoming',{
                params:{
                    api_key: TMDB
@@ -113,7 +113,7 @@ export class MoviesService {
       return  deffered.promise;
   }
   getTraillerMovie(id){
-    var deffered = this.q.defer();
+    let deffered = this.q.defer();
     this.http.get('https://api.themoviedb.org/3/movie/'+id+'/videos',{
                params:{
                    api_key: TMDB
@@ -129,7 +129,7 @@ export class MoviesService {
   }
   getPersonInformation(id){
 
-    var deffered = this.q.defer();
+    let deffered = this.q.defer();
     this.http.get('https://api.themoviedb.org/3/person/'+id,{
                params:{
                    api_key: TMDB
@@ -143,10 +143,25 @@ export class MoviesService {
            });
       return  deffered.promise;
   }
+  getTrendy(){
 
+    let deffered = this.q.defer();
+    this.http.get('https://api.themoviedb.org/3/movie/now_playing',{
+               params:{
+                   api_key: TMDB
+               }
+           }).then((data)=>{
+             this.debug.log(data)
+             deffered.resolve(data);
+           }).catch((err)=>{
+             this.debug.log(err);
+             deffered.reject(err)
+           });
+      return  deffered.promise;
+  }
   getRecommandation(id){
-    var deffered = this.q.defer();
-    this.http.get('https://api.themoviedb.org/3/person/'+id,{
+    let deffered = this.q.defer();
+    this.http.get('https://api.themoviedb.org/3/movie/'+id+'/similar',{
                params:{
                    api_key: TMDB
                }

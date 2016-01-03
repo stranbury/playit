@@ -19,7 +19,6 @@ export function MovieDirective() {
 class MovieController {
   constructor () {
     'ngInject';
-    console.log(this.image);
     this.imgUrl = "https://image.tmdb.org/t/p/w154";
   }
 }

@@ -12,11 +12,6 @@ import { UtilsService } from '../app/components/utils/service';
 angular.module('playitMaterial', ['ngAnimate', 'ngCookies', 'ngTouch', 'ngSanitize', 'ngMessages', 'ngAria', 'ui.router', 'ngMaterial'])
   .config(config)
   .config(routerConfig)
-  .config(function($mdThemingProvider) {
-  $mdThemingProvider.theme('default')
-    .primaryPalette('orange')
-    .accentPalette('orange');
-  })
   .run(runBlock)
   .controller('MainController', MainController)
   .controller('MovieDetailController', MovieDetailController)

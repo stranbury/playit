@@ -46,14 +46,16 @@
 
 html {
   font-family: 'Roboto Slab', serif;
-
+  background: #22252D;
+}
+.container{
+  margin-top: 50px;
 }
 body {
-  background: rgba(31,41 , 48, 1) no-repeat center center fixed;
-  -webkit-background-size: cover;
--moz-background-size: cover;
--o-background-size: cover;
-background-size: cover;
+  height: 100%;
+    margin: 0;
+    background: none;
+    background-attachment: fixed;
 }
 [layout=row] {
   flex-direction: row;
@@ -67,38 +69,19 @@ background-size: cover;
 }
 
 md-toolbar.md-default-theme {
-  background-color: black;
+
 }
+md-toolbar.md-default-theme:not(.md-menu-toolbar), md-toolbar:not(.md-menu-toolbar) {
+    background-color: rgba(233,30,99, 0);
+    color: rgb(255,255,255);
+    position: fixed;
+    margin-bottom: 50px;
+}
+
 md-content.md-default-theme, md-content{
   background: none !important;
+  overflow: auto !important;
 }
-section.jumbotron {
-  margin-bottom: 30px;
-  padding: 1px 30px;
-  background-color: #5aadbb;
-  text-align: center;
-
-  color: white;
-
-  h1 {
-    font-size: 3em;
-  }
-}
-
-.techs {
-  display: flex;
-  flex-flow: row wrap;
-
-  md-card {
-    width: 30%;
-
-    img.pull-right {
-      float: right;
-      width: 100px;
-    }
-  }
-}
-
 /**
  *  Do not remove the comment below. It's the markers used by gulp-inject to inject
  *  all your sass files automatically

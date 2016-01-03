@@ -1,6 +1,11 @@
 md-toolbar
   div.md-toolbar-tools
-    span My App's Title
+    span(flex)
+      a(ui-sref="app.home") PlayIt
+    span(flex)
+      md-input-container
+        input(ng-model="user.email" type="email")
+        md-button SEARCH
     span(flex)
     a(ui-sref="app.home.topRated")
       md-button TOP

@@ -1,0 +1,14 @@
+md-card.md-default-theme, md-card {
+    border-radius: 2px;
+    height: 90%;
+    width: 60%;
+    background-repeat: no-repeat;
+    background-size: cover;
+    transition: all 0.3s ;
+    box-shadow: 0 19px 38px rgba(0,0,0,0.30), 0 15px 12px rgba(0,0,0,0.22);
+    &:hover {
+      cursor: pointer;
+      height:100%;
+      width:70%;
+    }
+}
