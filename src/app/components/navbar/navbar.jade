@@ -2,10 +2,12 @@ md-toolbar
   div.md-toolbar-tools
     span(data-flex)
       a(data-ui-sref="app.home") PlayIt
+    span(data-flex)
     span(data-flex="50" data-layout="row")
-      md-input-container(data-flex="70")
+      md-input-container(data-flex="50")
         input(data-ng-model="navBarCtrl.search" type="text")
         md-button(data-flex="20" data-ng-click="navBarCtrl.lauchSearch()") SEARCH
+    span(data-flex)
     span(data-flex)
     a(data-ui-sref="app.home.topRated")
       md-button TOP
