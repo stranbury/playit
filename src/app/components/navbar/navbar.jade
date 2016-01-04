@@ -1,13 +1,13 @@
 md-toolbar
   div.md-toolbar-tools
-    span(flex)
-      a(ui-sref="app.home") PlayIt
-    span(flex="50" layout="row")
-      md-input-container(flex="70")
-        input(ng-model="user.email" type="text")
-        md-button(flex="20") SEARCH
-    span(flex)
-    a(ui-sref="app.home.topRated")
+    span(data-flex)
+      a(data-ui-sref="app.home") PlayIt
+    span(data-flex="50" data-layout="row")
+      md-input-container(data-flex="70")
+        input(data-ng-model="navBarCtrl.search" type="text")
+        md-button(data-flex="20" data-ng-click="navBarCtrl.lauchSearch()") SEARCH
+    span(data-flex)
+    a(data-ui-sref="app.home.topRated")
       md-button TOP
-    a(ui-sref="app.home.upcoming")
+    a(data-ui-sref="app.home.upcoming")
       md-button Upcoming

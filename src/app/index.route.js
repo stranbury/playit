@@ -29,23 +29,44 @@ export function routerConfig ($stateProvider, $urlRouterProvider) {
       }
     })
     .state('app.home.search', {
-      url: '/search/:search',
-      // resolve:{
-      //   movies: function ($q,MoviesService ,$stateParams){
-      //     var deferred = $q.defer();
-      //     MoviesService.getSearchFromApi($stateParams.search).then((data)=>{
-      //       deferred.resolve(data.data.results);
-      //     },(err)=>{
-      //       deferred.reject(err);
-      //     })
-      //     return deferred.promise;
-      //   }
-      // },
+      url: 'search/:search',
+      resolve:{
+        movies: function ($q,MoviesService ,$stateParams){
+          var deferred = $q.defer();
+          MoviesService.getSearchFromApi($stateParams.search).then((data)=>{
+            deferred.resolve(data.data.results);
+          },(err)=>{
+            deferred.reject(err);
+          })
+          return deferred.promise;
+        }
+      },
       views:{
         "content@":{
           templateUrl: 'app/search/search.html',
           controller: 'SearchController',
           controllerAs: 'searchCtrl'
+        }
+      }
+    })
+    .state('app.home.kind', {
+      url: 'kind/:id',
+      resolve:{
+        movies: function ($q,MoviesService ,$stateParams){
+          var deferred = $q.defer();
+          MoviesService.getMoviesGenre($stateParams.id).then((data)=>{
+            deferred.resolve(data.data.results);
+          },(err)=>{
+            deferred.reject(err);
+          })
+          return deferred.promise;
+        }
+      },
+      views:{
+        "content@":{
+          templateUrl: 'app/genre/genre.html',
+          controller: 'GenreController',
+          controllerAs: 'genreCtrl'
         }
       }
     })

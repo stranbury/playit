@@ -1,4 +1,4 @@
-export class SearchController {
+export class GenreController {
   constructor (movies, $log) {
     'ngInject';
     this.log = $log ;
