@@ -11,7 +11,7 @@ import { NavbarDirective } from '../app/components/navbar/navbar.directive';
 import { MovieDirective } from '../app/components/movie/directive';
 import { MoviesService } from '../app/components/movies/movies.service';
 import { UtilsService } from '../app/components/utils/service';
-angular.module('playitMaterial', ['ngAnimate', 'ngCookies', 'ngTouch', 'ngSanitize', 'ngMessages', 'ngAria', 'ui.router', 'ngMaterial','keats.youtube'])
+angular.module('playitMaterial', ['ngAnimate', 'ngCookies', 'ngTouch', 'ngSanitize', 'ngMessages', 'ngAria', 'ui.router', 'ngMaterial'])
   .config(config)
   .config(routerConfig)
   .run(runBlock)

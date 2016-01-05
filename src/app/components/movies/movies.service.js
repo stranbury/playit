@@ -181,8 +181,8 @@ export class MoviesService {
                    api_key: TMDB
                }
            }).then((data)=>{
-             this.debug.log(data)
-             deffered.resolve(data);
+             this.debug.info(data)
+             deffered.resolve(data.data);
            }).catch((err)=>{
              this.debug.log(err);
              deffered.reject(err)

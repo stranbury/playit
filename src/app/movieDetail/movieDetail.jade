@@ -1,14 +1,17 @@
-div(ng-hide="movieDetailCtrl.preview")
-  .playitMaterial-fullBackground(ng-style="{'background-image':'url({{ movieDetailCtrl.background }})'}")
+.playitMaterial-fullBackground(ng-style="{'background-image':'url({{ movieDetailCtrl.background }})'}" ng-hide="movieDetailCtrl.preview == 1")
+.mask
+div.info(ng-show="movieDetailCtrl.preview == 0")
   md-contain.no-background.detail-content( layout="row" flex layout-align="center center")
-    .content-texte(layout= "column"  layout-align="start start") 
-      h1.pl-movie-title {{ movieDetailCtrl.movie.original_title }} 
-      span(layout="row" layout-align="center center" flex)
-        md-button.movie-genre(ng-repeat="genre in movieDetailCtrl.movie.genres" ui-sref="app.home.kind({ id: genre.id })") {{genre.name}}
-      p.movie-description {{ movieDetailCtrl.movie.overview}}
-      span.container-button(layout="row" layout-align="center center" flex="100")
-        md-button( aria-label="Eat cake") Trailler
-        md-button( aria-label="Eat cake") RECOMMANDATION
-    md-card.md-default-theme.pl-card-movie-detail(ng-style="{'background-image':'url(https://image.tmdb.org/t/p/w500{{ ::movieDetailCtrl.movie.poster_path }})'}")
-#youtube( ng-show="movieDetailCtrl.preview" ) 
- 
+    .content-texte(layout= "column"  layout-align="start start" ng-switch="movieDetailCtrl.more" )
+      div(ng-switch-when="false")
+        h1.pl-movie-title {{ movieDetailCtrl.movie.original_title }} 
+        span(layout="row" layout-align="center center" flex)
+          md-button.movie-genre.md-whiteframe-3dp(ng-repeat="genre in movieDetailCtrl.movie.genres" ui-sref="app.home.kind({ id: genre.id })") {{genre.name}}
+        p.movie-description {{ movieDetailCtrl.movie.overview}}
+        span.container-button(layout="row" layout-align="center center" flex="100")
+          md-button.md-default-theme.md-whiteframe-8dp( aria-label="Eat cake" ng-click="movieDetailCtrl.preview = 2" ) RECOMMANDATION
+      
+    md-card.md-default-theme.pl-card-movie-detail(ng-style="{'background-image':'url(https://image.tmdb.org/t/p/w500{{ ::movieDetailCtrl.movie.poster_path }})'}" ng-click="movieDetailCtrl.preview = 1")
+youtube-video(video-id="movieDetailCtrl.link" ng-show="movieDetailCtrl.preview == 1" play='true' player-width="'100px'" player-height="'300px'")
+div.no-background.detail-content.reco.md-whiteframe-8dp(ng-show="movieDetailCtrl.preview == 2" layout="row" flex layout-align="center center") 
+  md-card.md-default-theme.pl-reco( ng-repeat="recomandation in ::movieDetailCtrl.recommandations | limitTo:5" ng-style="{'background-image':'url(https://image.tmdb.org/t/p/w500{{ ::recomandation.poster_path }})'}" ui-sref="^.detail({ id: recomandation.id })" ui-sref-opts="{reload: true}" )

@@ -3,6 +3,3 @@ md-content
   md-grid-list.container(md-cols-gt-md="4" md-cols-sm="1" md-cols-md="2" md-row-height-gt-md="1:1" md-row-width-gt-md="1:1" md-row-height="200px" ng-style="overflow:auto")
     md-grid-tile(data-ng-repeat="movie in ::topRatedCtrl.movies | orderBy : topRatedCtrl.movie[movie.$index].vote_average"   )
       md-card.md-default-theme( ui-sref="app.home.detail({ id: movie.id })"  ng-style="{'background-image':'url(https://image.tmdb.org/t/p/w500{{ ::movie.poster_path }})'}")
-        md-button.md-fab( aria-label="Eat cake") {{movie.vote_average}}
-        md-button.md-fab( aria-label="Eat cake") {{movie.vote_average}}
-        md-button.md-fab( aria-label="Eat cake") {{movie.vote_average}}
