@@ -1,6 +1,6 @@
 'use strict'
 export class MovieDetailController {
-  constructor (movie, $log, reviews, backdrop, recommandations, $document) {
+  constructor (movie, $log, reviews, backdrop, recommandations, trailler ) {
     'ngInject';
     this.recommandations = recommandations.results;
     console.log(this.recommandations);
@@ -8,7 +8,7 @@ export class MovieDetailController {
     this.reviews = reviews;
     this.background = backdrop;
     this.movie = movie;
-    $log.info(this.movie);
+    $log.info(trailler);
     this.preview = 0;
     this.more = false;
     this.link = 'OPmOXJtxxoo';

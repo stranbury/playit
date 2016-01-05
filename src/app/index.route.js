@@ -116,10 +116,10 @@ export function routerConfig ($stateProvider, $urlRouterProvider) {
           });
           return deffered.promise;
         },
-        actors: function($stateParams,$q, MoviesService ){
+        trailler : function($stateParams,$q, MoviesService ){
           let deffered = $q.defer();
           let id = $stateParams.id;
-          MoviesService.getRecommandation(id).then((reco)=>{
+          MoviesService.getTraillerMovie(id).then((reco)=>{
             deffered.resolve(reco)
           }, (err)=>{
             deffered.reject(err);
