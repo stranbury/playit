@@ -1,6 +1,6 @@
 'use strict'
 export class MovieDetailController {
-  constructor (movie, $log, reviews, backdrop, recommandations) {
+  constructor (movie, $log, reviews, backdrop, recommandations, $document) {
     'ngInject';
     this.recommandations = recommandations.results;
     console.log(this.recommandations);
@@ -12,6 +12,7 @@ export class MovieDetailController {
     this.preview = 0;
     this.more = false;
     this.link = 'OPmOXJtxxoo';
+    angular.element($(".preview")).YTPlayer();
   }
 
 

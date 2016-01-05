@@ -12,6 +12,6 @@ div.info(ng-show="movieDetailCtrl.preview == 0")
           md-button.md-default-theme.md-whiteframe-8dp( aria-label="Eat cake" ng-click="movieDetailCtrl.preview = 2" ) RECOMMANDATION
       
     md-card.md-default-theme.pl-card-movie-detail(ng-style="{'background-image':'url(https://image.tmdb.org/t/p/w500{{ ::movieDetailCtrl.movie.poster_path }})'}" ng-click="movieDetailCtrl.preview = 1")
-youtube-video(video-id="movieDetailCtrl.link" ng-show="movieDetailCtrl.preview == 1" play='true' player-width="'100px'" player-height="'300px'")
+.preview.detail-content(video-id="movieDetailCtrl.link" ng-show="movieDetailCtrl.preview == 1" data-property="{videoURL:'http://youtu.be/BsekcY04xvQ',containment:'self',autoPlay:true, mute:false, startAt:0, opacity:1}")
 div.no-background.detail-content.reco.md-whiteframe-8dp(ng-show="movieDetailCtrl.preview == 2" layout="row" flex layout-align="center center") 
   md-card.md-default-theme.pl-reco( ng-repeat="recomandation in ::movieDetailCtrl.recommandations | limitTo:5" ng-style="{'background-image':'url(https://image.tmdb.org/t/p/w500{{ ::recomandation.poster_path }})'}" ui-sref="^.detail({ id: recomandation.id })" ui-sref-opts="{reload: true}" )
