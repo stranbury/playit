@@ -46,16 +46,15 @@
 
 html {
   font-family: 'Roboto Slab', serif;
-  background: #22252D;
+  background: rgba(0,0,0, 0.9);
 }
 .container{
   margin-top: 100px;
 }
 body {
   height: 100%;
-    margin: 0;
-    background: none;
-    background-attachment: fixed;
+  margin: 0;
+  background: none !important;
 }
 [layout=row] {
   flex-direction: row;
@@ -67,10 +66,6 @@ body {
   color: #000;
   padding: 0.2em 0;
 }
-
-md-toolbar.md-default-theme {
-
-}
 .main.ng-enter {
   animation: fadeIn 1s;
 }
@@ -79,7 +74,7 @@ md-toolbar.md-default-theme {
   animation: fadeOut 1.5s;
 }
 md-toolbar.md-default-theme:not(.md-menu-toolbar), md-toolbar:not(.md-menu-toolbar) {
-    background-color: rgba(0,0,0, 0);
+    background-color: rgba(0,0,0, 0.5);
     color: rgb(255,255,255);
     position: fixed;
     margin-bottom: 50px;

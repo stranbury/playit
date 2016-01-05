@@ -125,6 +125,16 @@ export function routerConfig ($stateProvider, $urlRouterProvider) {
             deffered.reject(err);
           });
           return deffered.promise;
+        },
+        actors : function($stateParams,$q, MoviesService ){
+          let deffered = $q.defer();
+          let id = $stateParams.id;
+          MoviesService.getActorsMovie(id).then((reco)=>{
+            deffered.resolve(reco)
+          }, (err)=>{
+            deffered.reject(err);
+          });
+          return deffered.promise;
         }
       },
       views:{

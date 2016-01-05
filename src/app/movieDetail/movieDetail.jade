@@ -4,14 +4,24 @@ div.info(ng-show="movieDetailCtrl.preview == 0")
   md-contain.no-background.detail-content( layout="row" flex layout-align="center center")
     .content-texte(layout= "column"  layout-align="start start" ng-switch="movieDetailCtrl.more" )
       div(ng-switch-when="false")
+        h1.pl-movie-title Actors
+        span(layout="row" layout-align="center center" flex)
+          md-button.md-fab.md-whiteframe-3dp.actors(ng-repeat="genre in movieDetailCtrl.actors  | limitTo:5" ui-sref="app.home.kind({ id: genre.id })" ng-style="{'background-image':'url(https://image.tmdb.org/t/p/w500{{ ::genre.profile_path}})'}")
+            p {{genre.name}}
+          
+      div(ng-switch-when="true")
         h1.pl-movie-title {{ movieDetailCtrl.movie.original_title }} 
         span(layout="row" layout-align="center center" flex)
           md-button.movie-genre.md-whiteframe-3dp(ng-repeat="genre in movieDetailCtrl.movie.genres" ui-sref="app.home.kind({ id: genre.id })") {{genre.name}}
+          
         p.movie-description {{ movieDetailCtrl.movie.overview}}
         span.container-button(layout="row" layout-align="center center" flex="100")
+          md-button.md-default-theme.md-whiteframe-8dp( aria-label="Eat cake" ng-click="movieDetailCtrl.more = false" ) More
           md-button.md-default-theme.md-whiteframe-8dp( aria-label="Eat cake" ng-click="movieDetailCtrl.preview = 2" ) RECOMMANDATION
       
-    md-card.md-default-theme.pl-card-movie-detail(ng-style="{'background-image':'url(https://image.tmdb.org/t/p/w500{{ ::movieDetailCtrl.movie.poster_path }})'}" ng-click="movieDetailCtrl.preview = 1")
-.preview.detail-content(video-id="movieDetailCtrl.link" ng-show="movieDetailCtrl.preview == 1" data-property="{videoURL:'https://www.youtube.com/watch?v=EIELwayIIT4',containment:'self',autoPlay:true, mute:false, startAt:0, opacity:1}")
+    md-card.md-default-theme.pl-card-movie-detail(ng-style="{'background-image':'url(https://image.tmdb.org/t/p/w500{{ ::movieDetailCtrl.movie.poster_path }})'}" ng-click="movieDetailCtrl.lookPreview()")
+md-button.md-default-theme.md-whiteframe-8dp.closeButton( aria-label="Eat cake" ng-click="movieDetailCtrl.closePreview()" ng-show="movieDetailCtrl.preview == 1" style="z-index:10") Close
+.preview.detail-content(video-id="{{movieDetailCtrl.link}}" ng-show="movieDetailCtrl.preview == 1" data-property="{videoURL:'{{ ::movieDetailCtrl.link }}',containment:'self',autoPlay:true, mute:false, startAt:0, opacity:1, ratio:'16/9', loop:false}")
+
 div.no-background.detail-content.reco.md-whiteframe-8dp(ng-show="movieDetailCtrl.preview == 2" layout="row" flex layout-align="center center") 
   md-card.md-default-theme.pl-reco( ng-repeat="recomandation in ::movieDetailCtrl.recommandations | limitTo:5" ng-style="{'background-image':'url(https://image.tmdb.org/t/p/w500{{ ::recomandation.poster_path }})'}" ui-sref="^.detail({ id: recomandation.id })" ui-sref-opts="{reload: true}" )

@@ -143,6 +143,21 @@ export class MoviesService {
            });
       return  deffered.promise;
   }
+  getActorsMovie(id){
+    let deffered = this.q.defer();
+    this.http.get('https://api.themoviedb.org/3/movie/'+id+'/credits',{
+               params:{
+                   api_key: TMDB
+               }
+           }).then((data)=>{
+             this.debug.log(data)
+             deffered.resolve(data);
+           }).catch((err)=>{
+             this.debug.log(err);
+             deffered.reject(err)
+           });
+      return  deffered.promise;
+  }
   getPersonInformation(id){
 
     let deffered = this.q.defer();
